@@ -1,0 +1,6 @@
+{
+  "name": "Bakı Nuarı: Dindirmə Otağı",
+  "description": "Müasir Bakıda neo-nuar üslubunda hibrid AI dindirmə və vaxt məhdudiyyətli təhqiqat RPG oyunu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
