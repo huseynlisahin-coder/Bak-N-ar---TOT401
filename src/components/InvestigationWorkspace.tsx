@@ -265,7 +265,7 @@ export const InvestigationWorkspace: React.FC<InvestigationWorkspaceProps> = ({
         const isHtmlResponse = rawBody.trim().toLowerCase().startsWith('<');
         const fallbackMsg = isHtmlResponse
           ? 'Server müvəqqəti yüklənmə və ya şəbəkə fasiləsi ilə qarşılaşdı. Zəhmət olmasa sualı yenidən göndərin.'
-          : 'Dindirmə sorğusu zamanı server xətası baş verdi.';
+          : `Dindirmə sorğusu zamanı server xətası baş verdi (HTTP ${res.status}).`;
         throw new Error(data?.error || fallbackMsg);
       }
 
