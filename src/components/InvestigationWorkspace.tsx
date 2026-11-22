@@ -262,10 +262,13 @@ export const InvestigationWorkspace: React.FC<InvestigationWorkspaceProps> = ({
       }
 
       if (!res.ok || !data || typeof data.reply !== 'string') {
-        const isHtmlResponse = rawBody.trim().toLowerCase().startsWith('<');
+        const trimmedRaw = rawBody.trim();
+        const isHtmlResponse = trimmedRaw.toLowerCase().startsWith('<');
+        const detailSnippet =
+          !isHtmlResponse && trimmedRaw ? ` — ${trimmedRaw.slice(0, 120)}` : '';
         const fallbackMsg = isHtmlResponse
           ? 'Server müvəqqəti yüklənmə və ya şəbəkə fasiləsi ilə qarşılaşdı. Zəhmət olmasa sualı yenidən göndərin.'
-          : `Dindirmə sorğusu zamanı server xətası baş verdi (HTTP ${res.status}).`;
+          : `Dindirmə sorğusu zamanı server xətası baş verdi (HTTP ${res.status}${detailSnippet}).`;
         throw new Error(data?.error || fallbackMsg);
       }
 
